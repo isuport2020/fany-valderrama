@@ -285,6 +285,103 @@ main,footer{position:relative;left:auto;right:auto;transform:none}
   .butterfly-close{top:50px}
 }
 
+/* Encabezado móvil: marca, sonido y menú permanecen en filas limpias. */
+@media (max-width:900px){
+  html,body{max-width:100%;overflow-x:hidden}
+  .site-header{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto auto;
+    gap:8px;
+    width:calc(100% - 16px);
+    padding:8px 12px;
+    align-items:center;
+    overflow:visible;
+  }
+  .site-header .brand{
+    grid-column:1;
+    grid-row:1;
+    min-width:0;
+    margin:0;
+    gap:2px;
+    flex-direction:column;
+    align-items:flex-start;
+    overflow:hidden;
+  }
+  .brand .logo-lockup{width:132px;align-items:flex-start}
+  .brand .logo-mark{width:86px;max-width:86px;height:68px;max-height:68px}
+  .brand .logo-words{width:132px;max-width:132px;height:42px;max-height:42px}
+  .brand-separator{display:none!important}
+  .site-header .brand strong{
+    display:block!important;
+    width:100%;
+    max-width:150px;
+    padding:0;
+    font-size:12px;
+    line-height:1.2;
+    white-space:normal;
+  }
+  .header-actions{display:contents}
+  .site-header .sound-toggle{
+    position:static!important;
+    grid-column:2;
+    grid-row:1;
+    align-self:center;
+    margin:0!important;
+    padding:7px 9px;
+    font-size:11px;
+    line-height:1.15;
+    white-space:nowrap;
+  }
+  .site-header .menu-toggle{
+    display:inline-flex!important;
+    grid-column:3;
+    grid-row:1;
+    align-items:center;
+    gap:5px;
+    margin:0;
+    padding:8px 7px;
+    border:1px solid rgba(169,20,51,.28);
+    border-radius:999px;
+    background:#fffaf1;
+    color:var(--hero-red);
+    font-size:12px;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .site-header .menu-toggle::before{content:"☰";font-size:16px;line-height:1}
+  #main-nav{
+    display:none!important;
+    grid-column:1/-1;
+    grid-row:2;
+    width:100%;
+    margin:0;
+    padding:10px 0 2px;
+    gap:3px;
+    border-top:1px solid #eadccd;
+    flex-direction:column;
+    align-items:stretch;
+    overflow-y:auto;
+    max-height:calc(100vh - 150px);
+  }
+  #main-nav.open{display:flex!important}
+  #main-nav a{
+    width:100%;
+    padding:9px 12px;
+    border-radius:8px;
+    text-align:left;
+    white-space:normal;
+  }
+}
+@media (max-width:480px){
+  .site-header{grid-template-columns:minmax(92px,1fr) auto auto;gap:5px;padding-inline:8px}
+  .brand .logo-lockup{width:104px}
+  .brand .logo-mark{width:68px;max-width:68px;height:54px;max-height:54px}
+  .brand .logo-words{width:104px;max-width:104px;height:34px;max-height:34px}
+  .site-header .brand strong{max-width:112px;font-size:10px}
+  .site-header .sound-toggle{padding:6px 7px;font-size:10px}
+  .site-header .menu-toggle{padding:6px;font-size:10px}
+}
+
 /* Efecto lateral reversible: mariposas sutiles activadas por desplazamiento. */
 body{position:relative}
 .side-butterflies{

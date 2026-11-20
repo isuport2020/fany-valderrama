@@ -136,9 +136,24 @@ $('#experienceForm').onsubmit = (event) => {
   $('#formMessage').textContent = 'Gracias por compartir tu experiencia. Será revisada antes de cualquier publicación.';
   event.target.reset();
 };
-$('.menu-toggle').onclick = (event) => {
-  const nav = $('#main-nav');
-  nav.classList.toggle('open');
-  event.currentTarget.setAttribute('aria-expanded', nav.classList.contains('open'));
+const menuToggle = $('.menu-toggle');
+const mainNav = $('#main-nav');
+function closeMobileMenu() {
+  mainNav.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded', 'false');
+}
+menuToggle.onclick = () => {
+  const isOpen = mainNav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
 };
+mainNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMobileMenu));
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && mainNav.classList.contains('open')) {
+    closeMobileMenu();
+    menuToggle.focus();
+  }
+});
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900) closeMobileMenu();
+});
 $('#year').textContent = new Date().getFullYear();
