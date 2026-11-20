@@ -1,0 +1,8 @@
+/* Se muestra el logo original completo, sin recortes ni reconstrucción. */
+.site-header{height:172px}
+.brand{gap:20px}
+.brand .original-logo{width:136px;height:152px;max-height:none;object-fit:contain;object-position:center;flex:none}
+.brand-separator{height:68px;border-left:3px solid var(--gold)}
+.brand strong{font-size:21px;font-weight:500;max-width:275px}
+@media(max-width:900px){.site-header{height:154px}.brand .original-logo{width:118px;height:136px}.brand strong{font-size:15px}.brand-separator{height:58px}}
+@media(max-width:560px){.site-header{height:142px}.brand .original-logo{width:106px;height:124px}.brand strong,.brand-separator{display:none}}
